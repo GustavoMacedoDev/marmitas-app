@@ -20,9 +20,7 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder, 
     private snackBar: MatSnackBar,
     private router: Router,
-    private loginService: LoginService
-    
-    ) { }
+    private loginService: LoginService) { }
 
   ngOnInit() {
     this.gerarForm();
@@ -47,8 +45,12 @@ export class LoginComponent implements OnInit {
           localStorage['token'] = data['data']['token'];
           const usuarioData = JSON.parse(
             atob(data['data']['token'].split('.')[1]));
+            console.log(usuarioData);
+
           if (usuarioData['role'] == 'ROLE_ADMIN') {
-            this.router.navigate(['/admin']);
+            console.log(JSON.stringify(usuarioData));
+            window.alert("Deu certo bucetaaaaaa");
+           // this.router.navigate(['/admin']);
           } else {
             this.router.navigate(['/funcionario']);
           }
