@@ -7,6 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginModule, LoginRoutingModule, CadastroPjModule, CadastroPjRoutingModule } from './autenticacao';
+import { PedidoRoutingModule, CadastroPedidoModule } from './pedido';
 
 @NgModule({
   declarations: [ 
@@ -20,6 +21,8 @@ import { LoginModule, LoginRoutingModule, CadastroPjModule, CadastroPjRoutingMod
     LoginRoutingModule,
     CadastroPjModule,
     CadastroPjRoutingModule,
+    CadastroPedidoModule,
+    PedidoRoutingModule,
     
     AppRoutingModule
   ],

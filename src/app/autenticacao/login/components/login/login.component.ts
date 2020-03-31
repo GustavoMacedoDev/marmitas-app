@@ -48,9 +48,7 @@ export class LoginComponent implements OnInit {
             console.log(usuarioData);
 
           if (usuarioData['role'] == 'ROLE_ADMIN') {
-            console.log(JSON.stringify(usuarioData));
-            window.alert("Deu certo bucetaaaaaa");
-           // this.router.navigate(['/admin']);
+           this.router.navigate(['/pedido']);
           } else {
             this.router.navigate(['/funcionario']);
           }
