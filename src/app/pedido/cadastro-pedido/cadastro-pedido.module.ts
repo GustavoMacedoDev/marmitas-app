@@ -13,11 +13,15 @@ import { CadastrarPedidoComponent } from './components/cadastrar-pedido';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ListaProdutosPedidoComponent } from './components/lista-produtos-pedido/lista-produtos-pedido.component';
+import { ListaCarrinhoComponent } from './components/lista-carrinho/';
 
 
 @NgModule({
   declarations: [
-    CadastrarPedidoComponent
+    CadastrarPedidoComponent,
+    ListaProdutosPedidoComponent,
+    ListaCarrinhoComponent
   ],
   imports: [
     CommonModule,
