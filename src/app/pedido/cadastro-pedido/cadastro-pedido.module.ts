@@ -9,19 +9,19 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { CadastrarPedidoComponent } from './components/cadastrar-pedido';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { ListaProdutosPedidoComponent } from './components/lista-produtos-pedido/lista-produtos-pedido.component';
-import { ListaCarrinhoComponent } from './components/lista-carrinho/';
+import { MenuComponent } from './components/menu/menu.component';
+import { MenuItemComponent } from './components/menu-item/menu-item.component';
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 
 
 @NgModule({
   declarations: [
-    CadastrarPedidoComponent,
-    ListaProdutosPedidoComponent,
-    ListaCarrinhoComponent
+    MenuComponent,
+    MenuItemComponent,
+    ShoppingCartComponent
   ],
   imports: [
     CommonModule,

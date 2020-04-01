@@ -1,12 +1,10 @@
 import { Routes, RouterModule } from '@angular/router';
-import { CadastrarPedidoComponent } from './components/cadastrar-pedido';
 import { NgModule } from '@angular/core';
+import { MenuComponent } from './components/menu/menu.component';
 
 export const PedidoRoutes: Routes = [
 	{
-		path: 'pedido',
-		component: CadastrarPedidoComponent
-		
+		path : 'pedido', component: MenuComponent
 	}
 ];
 

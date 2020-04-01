@@ -1,5 +1,5 @@
 export interface ProdutoDto {
-    id : string;
+    idProduto : string;
     nome : string;
     preco : number;
 }

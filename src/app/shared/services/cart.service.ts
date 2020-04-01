@@ -26,13 +26,11 @@ export class CartService {
 
   addProduto(produto: ProdutoDto) : Cart {
     let cart = this.getCart();
-    let position = cart.itens.findIndex(x => x.produto.id == produto.id);
+    let position = cart.itens.findIndex(x => x.produto.idProduto == produto.idProduto);
     if (position == -1) {
         cart.itens.push({quantidade: 1, produto: produto});
     }
     this.storage.setCart(cart);
-
-    console.log(cart);
     return cart;
 
     
