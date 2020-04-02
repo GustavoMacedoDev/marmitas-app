@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MascaraDirective } from './directives/mascara.directive';
+import { ShoppingCartService } from './services';
 
 
 
@@ -11,6 +12,7 @@ import { MascaraDirective } from './directives/mascara.directive';
   ],
   exports: [
     MascaraDirective
-  ]
+  ],
+  providers: [ShoppingCartService]
 })
 export class SharedModule { }

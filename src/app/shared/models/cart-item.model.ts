@@ -2,9 +2,9 @@ import { MenuItem } from './menu-item.model';
 
 export class CartItem {
     constructor(public menuItem: MenuItem,
-                public quantity: number = 1){}
+                public quantidade: number = 1){}
   
     value(): number {
-      return this.menuItem.preco * this.quantity
+      return this.menuItem.preco * this.quantidade;
     }
   }

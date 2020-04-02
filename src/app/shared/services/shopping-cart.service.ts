@@ -17,7 +17,7 @@ export class ShoppingCartService {
   }
 
   addItem(item:MenuItem){
-    let foundItem = this.items.find((mItem)=> mItem.menuItem.id === item.id);
+    let foundItem = this.items.find((mItem)=> mItem.menuItem.idProduto === item.idProduto);
     if(foundItem){
       this.increaseQty(foundItem);
     }else{
@@ -27,12 +27,12 @@ export class ShoppingCartService {
   }
 
   increaseQty(item: CartItem){
-    item.quantity = item.quantity + 1;
+    item.quantidade = item.quantidade + 1;
   }
 
   decreaseQty(item: CartItem){
-    item.quantity = item.quantity - 1;
-    if (item.quantity === 0){
+    item.quantidade = item.quantidade - 1;
+    if (item.quantidade === 0){
       this.removeItem(item);
     }
   }

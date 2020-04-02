@@ -1,5 +1,5 @@
 export interface MenuItem {
-    id: string
+    idProduto: string
     nome: string
     preco: number
   }

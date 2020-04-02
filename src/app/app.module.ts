@@ -8,6 +8,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginModule, LoginRoutingModule, CadastroPjModule, CadastroPjRoutingModule } from './autenticacao';
 import { PedidoRoutingModule, CadastroPedidoModule } from './pedido';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [ 
@@ -23,6 +25,9 @@ import { PedidoRoutingModule, CadastroPedidoModule } from './pedido';
     CadastroPjRoutingModule,
     CadastroPedidoModule,
     PedidoRoutingModule,
+    SharedModule,
+    FontAwesomeModule,
+    
     
     AppRoutingModule
   ],
