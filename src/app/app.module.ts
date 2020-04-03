@@ -13,6 +13,9 @@ import { SharedModule } from './shared/shared.module';
 import { registerLocaleData } from '@angular/common';
 
 import localePtBr from '@angular/common/locales/pt';
+import { FechaPedidoModule } from './pedido/fecha-pedido/fecha-pedido.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FechaPedidoRoutingModule } from './pedido/fecha-pedido/fecha-pedido.routing';
 
 registerLocaleData(localePtBr);
 
@@ -24,6 +27,8 @@ registerLocaleData(localePtBr);
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatButtonModule,
     LoginModule,
     LoginRoutingModule,
@@ -33,6 +38,8 @@ registerLocaleData(localePtBr);
     PedidoRoutingModule,
     SharedModule,
     FontAwesomeModule,
+    FechaPedidoModule,
+    FechaPedidoRoutingModule,
     
     
     AppRoutingModule
