@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MenuComponent } from './components/menu/menu.component';
 import { MenuItemComponent } from './components/menu-item/menu-item.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
     MatTooltipModule,
     MatIconModule,
     MatSnackBarModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    FontAwesomeModule
   ]
 })
 export class CadastroPedidoModule { }

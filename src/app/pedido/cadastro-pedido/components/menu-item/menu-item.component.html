@@ -1,11 +1,14 @@
-<div class="" [@menuItemAppeared]="menuItemState">
-    <span class="menu-item-info-box-icon">
-      <img src="assets/img/marmita.jpg" width="50px" height="50px"> </span>
+<div class="box-footer detail-footer">
+  <div class="menu-item-info-box" [@menuItemAppeared]="menuItemState">
+    <a (click)="emitAddEvent()"><span class="menu-item-info-box-icon">
+      <img src="assets/img/marmita.jpg" width="50px" height="50px">
+      </span></a>
 
     <div class="menu-item-info-box-content">
-      <span class="menu-item-info-box-text">{{menuItem.nome}} </span>
-      <span class="menu-item-info-box-price"> {{menuItem.preco | currency: 'BRL': 'symbol'}} </span>
-      <button (click)="emitAddEvent()" class="btn btn-primary"><i ></i> Adicionar</button>
+      <span class="menu-item-info-box-text">{{menuItem.nome}}</span>
+      <span class="menu-item-info-box-price">{{menuItem.preco | currency: 'BRL': 'symbol'}}</span>
+      
     </div>
     <!-- /.info-box-content -->
   </div>
+</div>

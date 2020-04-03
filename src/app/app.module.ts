@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 
 import {BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MatButtonModule } from '@angular/material/button';
@@ -10,6 +10,12 @@ import { LoginModule, LoginRoutingModule, CadastroPjModule, CadastroPjRoutingMod
 import { PedidoRoutingModule, CadastroPedidoModule } from './pedido';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SharedModule } from './shared/shared.module';
+import { registerLocaleData } from '@angular/common';
+
+import localePtBr from '@angular/common/locales/pt';
+
+registerLocaleData(localePtBr);
+
 
 @NgModule({
   declarations: [ 
@@ -31,7 +37,7 @@ import { SharedModule } from './shared/shared.module';
     
     AppRoutingModule
   ],
-  providers: [],
+  providers: [{ provide : LOCALE_ID, useValue : 'pt-BR'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
