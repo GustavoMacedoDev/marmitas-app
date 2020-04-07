@@ -15,13 +15,15 @@ export class OrderComponent implements OnInit {
 
   emailPattern = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
+  telPattern = /[0-9]{2}[0-9]{5}[0-9]{4}/;
+
   numberPattern = /^[0-9]*$/;
 
   orderForm: FormGroup;
 
   delivery: number = 3;
 
-  paymentOptions: RadioOption[] = [
+  public paymentOptions: RadioOption[] = [
     {label: 'Dinheiro', value: 'MON'},
     {label: 'Cartão de Débito', value: 'DEB'},
     {label: 'Cartão Refeição', value: 'REF'}
@@ -32,14 +34,14 @@ export class OrderComponent implements OnInit {
               private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.orderForm = this.formBuilder.group({
+    this.orderForm = new FormGroup({
       name: this.formBuilder.control('', [Validators.required, Validators.minLength(5)]),
-      email: this.formBuilder.control('', [Validators.required, Validators.pattern(this.emailPattern)]),
+      telefone: this.formBuilder.control('', [Validators.required, Validators.pattern(this.telPattern)]),
       address: this.formBuilder.control('', [Validators.required, Validators.minLength(5)]),
       number: this.formBuilder.control('', [Validators.required, Validators.pattern(this.numberPattern)]),
       optionalAddress: this.formBuilder.control(''),
       paymentOption: this.formBuilder.control('', [Validators.required])
-    }, {validator: OrderComponent.equalsTo})
+    }, {validators: [OrderComponent.equalsTo], updateOn: 'blur'})
   }
 
   static equalsTo(group: AbstractControl): {[key:string]: boolean} {
@@ -75,6 +77,7 @@ export class OrderComponent implements OnInit {
   }
 
   checkOrder(order: Order){
+    console.log(order);
     order.orderItems = this.cartItems()
       .map((item:CartItem)=>new OrderItem(item.quantidade, item.menuItem.idProduto))
     this.orderService.checkOrder(order)

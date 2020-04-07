@@ -74,8 +74,11 @@ import 'core-js/es/array';
 import 'core-js/es/regexp';
 import 'core-js/es/map';
 import 'core-js/es/set';
-import 'core-js/es/reflect';
 
 import 'core-js/es/reflect';
+import 'zone.js/dist/zone.js';
 
- import 'intl';
+import 'intl';
+import 'intl/locale-data/jsonp/pt-BR.js';
+
+import 'web-animations-js/web-animations.min.js';
