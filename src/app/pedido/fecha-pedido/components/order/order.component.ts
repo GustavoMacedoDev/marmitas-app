@@ -1,10 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { OrderService } from 'src/app/shared/services/order.service';
 import { Router } from '@angular/router';
 import { CartItem } from 'src/app/shared/models/cart-item.model';
 import { Order, OrderItem } from 'src/app/shared/models/order.model';
 import { RadioOption } from 'src/app/shared/radio/radio-option.model';
+import { Cliente } from 'src/app/shared/models/cliente.model';
+import { ClienteService } from 'src/app/shared/services/cliente.service';
+import { MatSelect } from '@angular/material/select';
 
 @Component({
   selector: 'app-order',
@@ -22,6 +25,11 @@ export class OrderComponent implements OnInit {
   orderForm: FormGroup;
 
   delivery: number = 3;
+  clienteId: string;
+  clientes: Cliente[];
+  @ViewChild(MatSelect) matSelect: MatSelect;
+  form: FormGroup;
+
 
   public paymentOptions: RadioOption[] = [
     {label: 'Dinheiro', value: 'MON'},
@@ -31,7 +39,8 @@ export class OrderComponent implements OnInit {
 
   constructor(private orderService: OrderService,
               private router: Router,
-              private formBuilder: FormBuilder) { }
+              private formBuilder: FormBuilder,
+              private clienteService: ClienteService) { }
 
   ngOnInit() {
     this.orderForm = new FormGroup({
@@ -86,6 +95,10 @@ export class OrderComponent implements OnInit {
         this.orderService.clear()
     })
     console.log(order)
+  }
+
+  exibirClientes() {
+
   }
 
 }

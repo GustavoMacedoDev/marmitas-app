@@ -4,6 +4,7 @@ import { MascaraDirective } from './directives/mascara.directive';
 import { ShoppingCartService } from './services';
 import { RadioComponent } from './radio/radio.component';
 import { InputComponent } from './input/input.component';
+import { ClienteService } from './services/cliente.service';
 
 
 
@@ -19,6 +20,6 @@ import { InputComponent } from './input/input.component';
   exports: [
     MascaraDirective, RadioComponent, InputComponent
   ],
-  providers: [ShoppingCartService]
+  providers: [ShoppingCartService, ClienteService]
 })
 export class SharedModule { }

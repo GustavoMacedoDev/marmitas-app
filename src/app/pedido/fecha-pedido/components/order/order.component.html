@@ -1,3 +1,17 @@
+<form [formGroup]="form" novalidate>
+  <mat-form-field>
+    <mat-select placeholder="Clientes"
+      formControlName="clientes"
+      [(value)]="clienteId"
+      (selectionChange)="exibirClientes()">
+      <mat-option 
+        *ngFor="let cliente of clientes" 
+        [value]="cliente.id">
+        {{ cliente.nome }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>
 
 <section class="container">
   <section class="invoice">
