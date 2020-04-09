@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpUtilService } from './http-util.service';
 import { Observable } from 'rxjs';
-import { env } from 'process';
+import { environment as env} from 'src/environments/environment';
+import { Cliente } from '../models/cliente.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,13 @@ export class ClienteService {
   constructor(public httpClient: HttpClient,
      public httpUtil: HttpUtilService) { }
 
-     listarClientes(): Observable<any> {
-       return this.httpClient.get(env.baseUrl + this.PATH, this.httpUtil.headers());
-     }
+  listarClientes(): Observable<any> {
+    return this.httpClient.get(env.baseUrl + this.PATH, this.httpUtil.headers());
+  }
+
+  findByTelefone(telefone: Cliente) {
+    return this.httpClient.get<Cliente>(`${env.baseUrl}api/telefone?value=${telefone}`, 
+            this.httpUtil.headers());
+  }
+
 }

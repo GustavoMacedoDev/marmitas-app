@@ -23,7 +23,7 @@ export class ShoppingCartService {
     }else{
       this.items.push(new CartItem(item));
     }
-    this.snackBar.open(`Você adicionou o item ${item.nome}`);
+    //this.snackBar.open(`Você adicionou o item ${item.nome}`)
   }
 
   increaseQty(item: CartItem){

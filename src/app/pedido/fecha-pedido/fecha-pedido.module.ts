@@ -16,6 +16,9 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { InputComponent } from 'src/app/shared/input/input.component';
 import { RadioComponent } from 'src/app/shared/radio/radio.component';
+import { CadastroPedidoModule } from '../cadastro-pedido';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+
 
 
 @NgModule({
@@ -37,7 +40,11 @@ import { RadioComponent } from 'src/app/shared/radio/radio.component';
     MatIconModule,
     MatSnackBarModule,
     FormsModule,
+    SharedModule,
+    CadastroPedidoModule,
+    MatAutocompleteModule
     
-  ]
+  ],
+  exports: [MatAutocompleteModule]
 })
 export class FechaPedidoModule { }

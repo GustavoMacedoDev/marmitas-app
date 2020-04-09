@@ -36,7 +36,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MatIconModule,
     MatSnackBarModule,
     FlexLayoutModule,
-    FontAwesomeModule
+    FontAwesomeModule,
   ]
 })
 export class CadastroPedidoModule { }

@@ -28,8 +28,8 @@ export class OrderComponent implements OnInit {
   clienteId: string;
   clientes: Cliente[];
   @ViewChild(MatSelect) matSelect: MatSelect;
-  form: FormGroup;
 
+  cliente : Cliente;
 
   public paymentOptions: RadioOption[] = [
     {label: 'Dinheiro', value: 'MON'},
@@ -40,17 +40,20 @@ export class OrderComponent implements OnInit {
   constructor(private orderService: OrderService,
               private router: Router,
               private formBuilder: FormBuilder,
-              private clienteService: ClienteService) { }
+              private clienteService: ClienteService,
+              private fb: FormBuilder) { }
 
   ngOnInit() {
     this.orderForm = new FormGroup({
-      name: this.formBuilder.control('', [Validators.required, Validators.minLength(5)]),
+      nome: this.formBuilder.control('', [Validators.required, Validators.minLength(5)]),
       telefone: this.formBuilder.control('', [Validators.required, Validators.pattern(this.telPattern)]),
-      address: this.formBuilder.control('', [Validators.required, Validators.minLength(5)]),
-      number: this.formBuilder.control('', [Validators.required, Validators.pattern(this.numberPattern)]),
-      optionalAddress: this.formBuilder.control(''),
+      logradouro: this.formBuilder.control('', [Validators.required, Validators.minLength(5)]),
+      numero: this.formBuilder.control('', [Validators.required, Validators.pattern(this.numberPattern)]),
+      bairro: this.formBuilder.control('', [Validators.required]),
+      complemento: this.formBuilder.control(''),
       paymentOption: this.formBuilder.control('', [Validators.required])
-    }, {validators: [OrderComponent.equalsTo], updateOn: 'blur'})
+    }, {validators: [OrderComponent.equalsTo], updateOn: 'blur'});
+    
   }
 
   static equalsTo(group: AbstractControl): {[key:string]: boolean} {
@@ -97,8 +100,11 @@ export class OrderComponent implements OnInit {
     console.log(order)
   }
 
-  exibirClientes() {
-
+  findByTelefone() {
+    const telefoneCliente: Cliente = this.orderForm.value.telefone;
+    return this.clienteService.findByTelefone(telefoneCliente)
+      .subscribe(res => this.cliente = res);
+    console.log(this.cliente);
   }
 
 }

@@ -1,23 +1,5 @@
-<form [formGroup]="form" novalidate>
-  <mat-form-field>
-    <mat-select placeholder="Clientes"
-      formControlName="clientes"
-      [(value)]="clienteId"
-      (selectionChange)="exibirClientes()">
-      <mat-option 
-        *ngFor="let cliente of clientes" 
-        [value]="cliente.id">
-        {{ cliente.nome }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-</form>
-
 <section class="container">
   <section class="invoice">
-
-   
-
         <form [formGroup]="orderForm" novalidate>
           <div class="row">
             <div class="col-xs-12">
@@ -26,6 +8,18 @@
               </h3>
             </div>
           </div>
+            <div class="col-sm-12 col-xs-12">
+              <app-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="Nome">
+                <input class="form-control" formControlName="telefone" placeholder="Telefone" autocomplete="off" >
+              </app-input-container>
+            </div>
+            <div class="row">
+              <div class="col-xs-12">
+                <button (click)="findByTelefone()" class="btn btn-success pull-right">
+                  Buscar Cliente
+                </button>
+              </div>
+            </div>
 
           <div class="row">
             <div class="col-xs-12 col-sm-9">
@@ -37,13 +31,7 @@
 
             <div class="col-sm-12 col-xs-12">
               <app-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="Nome">
-                <input class="form-control" formControlName="name" placeholder="Nome" autocomplete="off" >
-              </app-input-container>
-            </div>
-
-            <div class="col-sm-12 col-xs-6">
-              <app-input-container errorMessage="Telefone inválido" label="Telefone">
-                <input type="tel" class="form-control" formControlName="telefone" placeholder="Telefone" autocomplete="off">
+                <input class="form-control" formControlName="nome" placeholder="Nome" autocomplete="off" [(ngModel)]="cliente.nome">
               </app-input-container>
             </div>
 
@@ -55,19 +43,23 @@
             </div>
             <div class="col-sm-12 col-xs-12">
               <app-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="Endereço">
-                <input class="form-control" formControlName="address" placeholder="Endereço" autocomplete="off" >
+                <input class="form-control" formControlName="logradouro" placeholder="Endereço" autocomplete="off" >
               </app-input-container>
             </div>
             <div class="col-sm-12 col-xs-6">
               <app-input-container errorMessage="Obrigatório e somente números" label="Número">
-                <input type="text" class="form-control" formControlName="number" placeholder="Número" autocomplete="off">
+                <input type="text" class="form-control" formControlName="numero" placeholder="Número" autocomplete="off">
               </app-input-container>
             </div>
             <div class="col-sm-12 col-xs-6">
               <app-input-container>
-                <input type="text" class="form-control" formControlName="optionalAddress" placeholder="Complemento">
+                <input type="text" class="form-control" formControlName="complemento" placeholder="Complemento">
               </app-input-container>
-
+            </div>
+            <div class="col-sm-12 col-xs-12">
+              <app-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="Endereço">
+                <input class="form-control" formControlName="bairro" placeholder="Endereço" autocomplete="off" >
+              </app-input-container>
             </div>
           </div>
 
