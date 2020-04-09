@@ -104,7 +104,6 @@ export class OrderComponent implements OnInit {
     const telefoneCliente: Cliente = this.orderForm.value.telefone;
     return this.clienteService.findByTelefone(telefoneCliente)
       .subscribe(res => this.cliente = res);
-    console.log(this.cliente);
   }
 
 }

@@ -20,7 +20,7 @@ export class ClienteService {
   }
 
   findByTelefone(telefone: Cliente) {
-    return this.httpClient.get<Cliente>(`${env.baseUrl}api/telefone?value=${telefone}`, 
+    return this.httpClient.get<Cliente>(`${env.baseUrl}api/clientes?value=${telefone}`, 
             this.httpUtil.headers());
   }
 
