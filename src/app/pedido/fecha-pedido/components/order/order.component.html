@@ -4,72 +4,31 @@
           <div class="row">
             <div class="col-xs-12">
               <h3 class="page-header">
-                Dados do Cliente
+                Cliente
               </h3>
             </div>
           </div>
-            <div class="col-sm-12 col-xs-12">
-              <app-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="Nome">
-                <input class="form-control" formControlName="telefone" placeholder="Telefone" autocomplete="off" >
-              </app-input-container>
-            </div>
-            <div class="row">
-              <div class="col-xs-12">
-                <button (click)="findByTelefone()" class="btn btn-success pull-right">
-                  Buscar Cliente
-                </button>
-              </div>
-            </div>
-
           <div class="row">
-            <div class="col-xs-12 col-sm-9">
-              <p class="lead">Seus Dados:</p>
-            </div>
-
-            <div class="col-sm-12 col-xs-12">
-              <app-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="Nome">
-                <input class="form-control" formControlName="nome" placeholder="Nome" autocomplete="off" [(ngModel)]="cliente.nome">
-              </app-input-container>
-            </div>
-
-          </div>
-
-          <div class="row">
-            <div class="col-xs-12">
-              <p class="lead">Endereço de Entrega:</p>
-            </div>
-            <div class="col-sm-12 col-xs-12">
-              <app-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="Endereço">
-                <input class="form-control" formControlName="logradouro" placeholder="Endereço" autocomplete="off" [(ngModel)]="cliente.logradouro">
-              </app-input-container>
-            </div>
-            <div class="col-sm-12 col-xs-6">
-              <app-input-container errorMessage="Obrigatório e somente números" label="Número">
-                <input type="text" class="form-control" formControlName="numero" placeholder="Número" autocomplete="off" [(ngModel)]="cliente.numero">
-              </app-input-container>
-            </div>
-            <div class="col-sm-12 col-xs-6">
-              <app-input-container>
-                <input type="text" class="form-control" formControlName="complemento" placeholder="Complemento" [(ngModel)]="cliente.complemento">
-              </app-input-container>
-            </div>
-            <div class="col-sm-12 col-xs-12">
-              <app-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="Endereço">
-                <input class="form-control" formControlName="bairro" placeholder="Bairro" autocomplete="off" [(ngModel)]="cliente.bairro">
-              </app-input-container>
+            <div class="col-sm-3">
+              <select class="form-control">
+                <option formControlName="cliente" *ngFor="let cliente of clientes" value="{{cliente.id}}" >
+                  {{ cliente.id }}{{ cliente.nome }} : {{cliente.telefone}}
+                </option>
+                
+              </select>
             </div>
           </div>
-
+          
           <div class="row">
-            <div class="col-xs-12">
+            <div class="col-sm-12 col-xs-12">
               <p class="lead">Itens do Pedido:</p>
             </div>
-
-            <app-order-items [items]="cartItems()"
-                  (increaseQty)="increaseQty($event)"
-                  (decreaseQty)="decreaseQty($event)"
-                  (remove)="remove($event)"></app-order-items>
-            <!-- /.col -->
+            <div>
+              <app-order-items [items]="cartItems()"
+                    (increaseQty)="increaseQty($event)"
+                    (decreaseQty)="decreaseQty($event)"
+                    (remove)="remove($event)"></app-order-items>
+            </div>
           </div>
           <!-- /.row -->
 

@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, AbstractControl, FormControl } from '@angular/forms';
 import { OrderService } from 'src/app/shared/services/order.service';
 import { Router } from '@angular/router';
 import { CartItem } from 'src/app/shared/models/cart-item.model';
@@ -23,7 +23,7 @@ export class OrderComponent implements OnInit {
   numberPattern = /^[0-9]*$/;
 
   orderForm: FormGroup;
-
+  myControl = new FormControl();
   delivery: number = 3;
   clienteId: string;
   clientes: Cliente[];
@@ -44,16 +44,12 @@ export class OrderComponent implements OnInit {
               private fb: FormBuilder) { }
 
   ngOnInit() {
+    
     this.orderForm = new FormGroup({
-      nome: this.formBuilder.control('', [Validators.required, Validators.minLength(5)]),
-      telefone: this.formBuilder.control('', [Validators.required, Validators.pattern(this.telPattern)]),
-      logradouro: this.formBuilder.control('', [Validators.required, Validators.minLength(5)]),
-      numero: this.formBuilder.control('', [Validators.required, Validators.pattern(this.numberPattern)]),
-      bairro: this.formBuilder.control('', [Validators.required]),
-      complemento: this.formBuilder.control(''),
+      cliente: this.formBuilder.control('', [Validators.required]),
       paymentOption: this.formBuilder.control('', [Validators.required])
     }, {validators: [OrderComponent.equalsTo], updateOn: 'blur'});
-    
+    this.listarClientes();
   }
 
   static equalsTo(group: AbstractControl): {[key:string]: boolean} {
@@ -104,6 +100,10 @@ export class OrderComponent implements OnInit {
     const telefoneCliente: Cliente = this.orderForm.value.telefone;
     return this.clienteService.findByTelefone(telefoneCliente)
       .subscribe(res => this.cliente = res);
+  }
+
+  listarClientes() {
+    return this.clienteService.listarClientes().subscribe(res => this.clientes = res);
   }
 
 }

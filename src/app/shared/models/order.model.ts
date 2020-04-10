@@ -1,8 +1,8 @@
+import { Cliente } from './cliente.model';
+
 class Order {
     constructor(
-      public address: string,
-      public number: number,
-      public optionalAddress: string,
+      public id: Cliente,
       public paymentOption: string,
       public orderItems: OrderItem[] = []
     ){}
