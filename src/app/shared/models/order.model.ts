@@ -1,8 +1,9 @@
 import { Cliente } from './cliente.model';
+import { RefDto } from '../interfaces';
 
 class Order {
     constructor(
-      public id: Cliente,
+      public cliente: RefDto,
       public paymentOption: string,
       public orderItems: OrderItem[] = []
     ){}

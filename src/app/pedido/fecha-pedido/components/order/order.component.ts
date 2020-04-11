@@ -8,6 +8,8 @@ import { RadioOption } from 'src/app/shared/radio/radio-option.model';
 import { Cliente } from 'src/app/shared/models/cliente.model';
 import { ClienteService } from 'src/app/shared/services/cliente.service';
 import { MatSelect } from '@angular/material/select';
+import { FormaPagamento } from 'src/app/shared/models/forma-pagamento.model';
+import { FormaPagamentoService } from 'src/app/shared/services/forma-pagamento.service';
 
 @Component({
   selector: 'app-order',
@@ -15,13 +17,6 @@ import { MatSelect } from '@angular/material/select';
   styleUrls: ['./order.component.css']
 })
 export class OrderComponent implements OnInit {
-
-  emailPattern = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-
-  telPattern = /[0-9]{2}[0-9]{5}[0-9]{4}/;
-
-  numberPattern = /^[0-9]*$/;
-
   orderForm: FormGroup;
   myControl = new FormControl();
   delivery: number = 3;
@@ -29,27 +24,24 @@ export class OrderComponent implements OnInit {
   clientes: Cliente[];
   @ViewChild(MatSelect) matSelect: MatSelect;
 
-  cliente : Cliente;
-
-  public paymentOptions: RadioOption[] = [
-    {label: 'Dinheiro', value: 'MON'},
-    {label: 'Cartão de Débito', value: 'DEB'},
-    {label: 'Cartão Refeição', value: 'REF'}
-  ] 
+  formasPagamento: FormaPagamento[];
 
   constructor(private orderService: OrderService,
               private router: Router,
               private formBuilder: FormBuilder,
               private clienteService: ClienteService,
+              private formaPagamentoService: FormaPagamentoService,
               private fb: FormBuilder) { }
 
   ngOnInit() {
-    
+    this.listarClientes();
+    this.listarFormasPagamento();
+    console.log(this.formasPagamento);
     this.orderForm = new FormGroup({
       cliente: this.formBuilder.control('', [Validators.required]),
       paymentOption: this.formBuilder.control('', [Validators.required])
     }, {validators: [OrderComponent.equalsTo], updateOn: 'blur'});
-    this.listarClientes();
+    
   }
 
   static equalsTo(group: AbstractControl): {[key:string]: boolean} {
@@ -96,14 +88,14 @@ export class OrderComponent implements OnInit {
     console.log(order)
   }
 
-  findByTelefone() {
-    const telefoneCliente: Cliente = this.orderForm.value.telefone;
-    return this.clienteService.findByTelefone(telefoneCliente)
-      .subscribe(res => this.cliente = res);
-  }
-
   listarClientes() {
     return this.clienteService.listarClientes().subscribe(res => this.clientes = res);
+  }
+
+  listarFormasPagamento(){
+    return this.formaPagamentoService.listarFormasPagamento()
+    .subscribe(res => this.formasPagamento = res);
+    
   }
 
 }

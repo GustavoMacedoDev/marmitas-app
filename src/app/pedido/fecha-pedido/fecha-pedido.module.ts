@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
+import { NgModule, forwardRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { OrderComponent } from './components/order/order.component';
 import { DeliveryCostsComponent } from './components/delivery-costs/delivery-costs.component';
 import { OrderItemsComponent } from './components/order/order-items/order-items.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
@@ -46,5 +46,5 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     
   ],
   exports: [MatAutocompleteModule]
-})
+  })
 export class FechaPedidoModule { }

@@ -45,7 +45,8 @@ export class OrderService {
 
   checkOrder(order: Order): Observable<any> {
     const headers = new Headers()
-    headers.append('Content-Type', 'application/json')
-    return this.http.post(env.baseUrl + this.PATH, order, this.httpUtil.headers());
+    headers.append('Content-Type', 'application/json');
+    return this.http.post(env.baseUrl + this.PATH, order,
+       this.httpUtil.headers());
   }
 }

@@ -10,7 +10,7 @@ export class HttpUtilService {
 
   headers() {
   	let httpHeaders: HttpHeaders = new HttpHeaders();
-	
+	httpHeaders.append('Content-Type', 'application/json');
   	if (localStorage['token']) {
   	  httpHeaders = httpHeaders.set(
   	  	'Authorization', 'Bearer ' + localStorage['token']

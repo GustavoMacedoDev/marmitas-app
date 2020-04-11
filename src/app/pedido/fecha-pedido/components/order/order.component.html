@@ -8,14 +8,16 @@
               </h3>
             </div>
           </div>
-          <div class="row">
-            <div class="col-sm-3">
-              <select class="form-control">
-                <option formControlName="cliente" *ngFor="let cliente of clientes" value="{{cliente.id}}" >
-                  {{ cliente.id }}{{ cliente.nome }} : {{cliente.telefone}}
-                </option>
-                
+          
+          <div class="form-row">
+          
+            <div class="form-group col-md-3">
+              <select class="form-control" formControlName="cliente">
+                <option [selected]="true" value="">Selecione um cliente</option>
+                <option *ngFor="let cliente of clientes" value="{{cliente.id}}">{{ cliente.nome }}</option>
               </select>
+    
+            
             </div>
           </div>
           
@@ -37,9 +39,14 @@
             <div class="col-sm-6 col-xs-12">
               <p class="lead">Formas de Pagamento:</p>
 
-              <div class="form-group">
-                <app-radio [options]="paymentOptions" formControlName="paymentOption"></app-radio>
-             </div>
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <select class="form-control" formControlName="paymentOption">
+                    <option [selected]="true" value="">Selecione uma forma de pagamento</option>
+                    <option *ngFor="let pagamento of formasPagamento" value="{{pagamento.id}}">{{pagamento.formaPagamento}}</option>
+                  </select>
+                </div>
+              </div>
 
             </div>
             <!-- /.col -->
