@@ -1,16 +1,16 @@
-import { Cliente } from './cliente.model';
 import { RefDto } from '../interfaces';
+import { FormaPagamento } from './forma-pagamento.model';
 
 class Order {
     constructor(
       public cliente: RefDto,
-      public paymentOption: string,
-      public orderItems: OrderItem[] = []
+      public pagamento: FormaPagamento,
+      public itens: OrderItem[] = []
     ){}
   }
   
   class OrderItem {
-    constructor(public quantity: number, public menuId: string){}
+    constructor(public quantidade: number, public produto: RefDto){}
   }
   
   export {Order, OrderItem}

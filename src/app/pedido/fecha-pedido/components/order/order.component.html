@@ -41,7 +41,7 @@
 
               <div class="form-row">
                 <div class="form-group col-md-12">
-                  <select class="form-control" formControlName="paymentOption">
+                  <select class="form-control" formControlName="formaPagamento">
                     <option [selected]="true" value="">Selecione uma forma de pagamento</option>
                     <option *ngFor="let pagamento of formasPagamento" value="{{pagamento.id}}">{{pagamento.formaPagamento}}</option>
                   </select>

@@ -10,6 +10,7 @@ import { ClienteService } from 'src/app/shared/services/cliente.service';
 import { MatSelect } from '@angular/material/select';
 import { FormaPagamento } from 'src/app/shared/models/forma-pagamento.model';
 import { FormaPagamentoService } from 'src/app/shared/services/forma-pagamento.service';
+import { PedidoDto } from 'src/app/shared';
 
 @Component({
   selector: 'app-order',
@@ -23,6 +24,7 @@ export class OrderComponent implements OnInit {
   clienteId: string;
   clientes: Cliente[];
   @ViewChild(MatSelect) matSelect: MatSelect;
+  pedido: PedidoDto;
 
   formasPagamento: FormaPagamento[];
 
@@ -39,7 +41,7 @@ export class OrderComponent implements OnInit {
     console.log(this.formasPagamento);
     this.orderForm = new FormGroup({
       cliente: this.formBuilder.control('', [Validators.required]),
-      paymentOption: this.formBuilder.control('', [Validators.required])
+      formaPagamento: this.formBuilder.control('', [Validators.required])
     }, {validators: [OrderComponent.equalsTo], updateOn: 'blur'});
     
   }
@@ -78,8 +80,9 @@ export class OrderComponent implements OnInit {
 
   checkOrder(order: Order){
     console.log(order);
-    order.orderItems = this.cartItems()
-      .map((item:CartItem)=>new OrderItem(item.quantidade, item.menuItem.idProduto))
+    order.itens = this.cartItems()
+      .map(x => {return {quantidade: x.quantidade, produto: {id: x.menuItem.idProduto}}});
+
     this.orderService.checkOrder(order)
       .subscribe( (orderId: string) => {
         this.router.navigate(['/order-summary'])
