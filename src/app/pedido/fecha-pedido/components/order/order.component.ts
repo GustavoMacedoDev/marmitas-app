@@ -23,6 +23,7 @@ export class OrderComponent implements OnInit {
   delivery: number = 3;
   clienteId: string;
   clientes: Cliente[];
+  cliente: Cliente;
   @ViewChild(MatSelect) matSelect: MatSelect;
   pedido: PedidoDto;
 
@@ -38,7 +39,6 @@ export class OrderComponent implements OnInit {
   ngOnInit() {
     this.listarClientes();
     this.listarFormasPagamento();
-    console.log(this.formasPagamento);
     this.orderForm = new FormGroup({
       cliente: this.formBuilder.control('', [Validators.required]),
       formaPagamento: this.formBuilder.control('', [Validators.required])
@@ -66,6 +66,10 @@ export class OrderComponent implements OnInit {
     return this.orderService.cartItems()
   }
 
+  clienteValue(): Cliente{
+    return this.cliente;
+  }
+
   increaseQty(item: CartItem){
     this.orderService.increaseQty(item)
   }
@@ -78,17 +82,16 @@ export class OrderComponent implements OnInit {
     this.orderService.remove(item)
   }
 
-  checkOrder(order: Order){
-    console.log(order);
-    order.itens = this.cartItems()
-      .map(x => {return {quantidade: x.quantidade, produto: {id: x.menuItem.idProduto}}});
+  checkOrder(pedido: PedidoDto){
+    pedido.itens = this.cartItems()
+      .map(x => {return {quantidade: x.quantidade, produto: {id: x.menuItem.id}}});
 
-    this.orderService.checkOrder(order)
+    this.orderService.checkOrder(pedido)
       .subscribe( (orderId: string) => {
-        this.router.navigate(['/order-summary'])
+        this.router.navigate(['/order-confirmation'])
         this.orderService.clear()
     })
-    console.log(order)
+    console.log(pedido)
   }
 
   listarClientes() {

@@ -18,6 +18,8 @@ import { InputComponent } from 'src/app/shared/input/input.component';
 import { RadioComponent } from 'src/app/shared/radio/radio.component';
 import { CadastroPedidoModule } from '../cadastro-pedido';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { OrderConfirmationComponent } from './components/order-confirmation/order-confirmation.component';
+import { WebDataRocksPivot } from 'src/app/webappdatarocks/webdatarocks.angular4';
 
 
 
@@ -25,7 +27,9 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
   declarations: [
     OrderComponent,
     DeliveryCostsComponent,
-    OrderItemsComponent
+    OrderItemsComponent,
+    OrderConfirmationComponent,
+    WebDataRocksPivot
   ],
   imports: [
     CommonModule,

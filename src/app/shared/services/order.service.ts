@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { Order } from '../models/order.model';
 import { environment as env} from 'src/environments/environment';
 import { HttpUtilService } from './http-util.service';
+import { PedidoDto } from '..';
 
 
 @Injectable({
@@ -43,10 +44,10 @@ export class OrderService {
     this.cartService.clear()
   }
 
-  checkOrder(order: Order): Observable<any> {
+  checkOrder(pedido: PedidoDto): Observable<any> {
     const headers = new Headers()
     headers.append('Content-Type', 'application/json');
-    return this.http.post(env.baseUrl + this.PATH, order,
+    return this.http.post(env.baseUrl + this.PATH, pedido,
        this.httpUtil.headers());
   }
 }

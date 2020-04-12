@@ -17,7 +17,7 @@ export class ShoppingCartService {
   }
 
   addItem(item:MenuItem){
-    let foundItem = this.items.find((mItem)=> mItem.menuItem.idProduto === item.idProduto);
+    let foundItem = this.items.find((mItem)=> mItem.menuItem.id === item.id);
     if(foundItem){
       this.increaseQty(foundItem);
     }else{
