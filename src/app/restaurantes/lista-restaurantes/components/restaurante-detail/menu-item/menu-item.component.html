@@ -1,0 +1,11 @@
+<div class="float-center" [@menuItemAppeared]="menuItemState">
+  <a (click)="emitAddEvent()"><span class="">
+    <img src="assets/img/marmita.jpg" width="50px" height="50px">
+    </span></a>
+
+  <div class="menu">
+    <span class="">{{menuItem.nome}}</span>
+    <span class="">{{menuItem.preco | currency: 'BRL': 'symbol'}}</span>
+    
+  </div>
+</div>

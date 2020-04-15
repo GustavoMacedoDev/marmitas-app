@@ -12,17 +12,17 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { MenuComponent } from './components/menu/menu.component';
-import { MenuItemComponent } from './components/menu-item/menu-item.component';
-import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ListaLanchesComponent } from './components/lista-lanches/lista-lanches.component';
+import { CategoriasComponent } from './components/categorias/categorias.component';
+import { ListaLanchesCategoriaComponent } from './components/lista-lanches-categoria/lista-lanches-categoria.component';
 
 
 @NgModule({
   declarations: [
-    MenuComponent,
-    MenuItemComponent,
-    ShoppingCartComponent
+    ListaLanchesComponent,
+    CategoriasComponent,
+    ListaLanchesCategoriaComponent
   ],
   imports: [
     CommonModule,

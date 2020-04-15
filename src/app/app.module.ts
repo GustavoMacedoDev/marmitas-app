@@ -16,13 +16,19 @@ import localePtBr from '@angular/common/locales/pt';
 import { FechaPedidoModule } from './pedido/fecha-pedido/fecha-pedido.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FechaPedidoRoutingModule } from './pedido/fecha-pedido/fecha-pedido.routing';
+import { CadastroProdutoModule } from './produto/cadastro-produto/cadastro-produto.module';
+import { CadastroProdutoRoutingModule } from './produto/cadastro-produto/cadastro-produto-routing.module';
+import { RestaurantsComponent } from './restaurantes/lista-restaurantes/components/restaurants/restaurants.component';
+import { ListaRestaurantesModule } from './restaurantes/lista-restaurantes/lista-restaurantes.module';
+import { ListaRestaurantesRoutingModule } from './restaurantes/lista-restaurantes/lista-restaurantes-routing';
+import { PedidoComponent } from './relatorios/pedido/pedido.component';
 
 registerLocaleData(localePtBr);
 
 
 @NgModule({
   declarations: [ 
-    AppComponent
+    AppComponent, PedidoComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +48,10 @@ registerLocaleData(localePtBr);
     FechaPedidoRoutingModule,
     CadastroPfModule,
     CadastroPfRoutingModule,
+    CadastroProdutoModule,
+    CadastroProdutoRoutingModule,
+    ListaRestaurantesModule,
+    ListaRestaurantesRoutingModule,
     
     AppRoutingModule
   ],

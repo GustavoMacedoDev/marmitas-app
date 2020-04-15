@@ -1,11 +1,18 @@
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { MenuComponent } from './components/menu/menu.component';
+import { ListaLanchesComponent } from './components/lista-lanches/lista-lanches.component';
+import { CategoriasComponent } from './components/categorias/categorias.component';
+import { ListaLanchesCategoriaComponent } from './components/lista-lanches-categoria/lista-lanches-categoria.component';
 
 export const PedidoRoutes: Routes = [
-	{
-		path : 'pedido', component: MenuComponent
-	}
+	
+  {
+    path: 'categorias/:id', component: ListaLanchesCategoriaComponent
+  },
+  {
+    path : 'lista-categorias', component: CategoriasComponent
+  }
+  
 ];
 
 @NgModule({

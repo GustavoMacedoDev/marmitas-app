@@ -6,8 +6,6 @@ import { RadioComponent } from './radio/radio.component';
 import { InputComponent } from './input/input.component';
 import { ClienteService } from './services/cliente.service';
 
-
-
 @NgModule({
   declarations: [
     MascaraDirective,
