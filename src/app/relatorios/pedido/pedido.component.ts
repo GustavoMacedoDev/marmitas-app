@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import 'jspdf-autotable';
 import * as jsPdf from 'jspdf';
+import * as $ from "jquery";
+
 import { ProdutoDto } from 'src/app/shared';
 import { ProdutoService } from 'src/app/shared/services';
 
@@ -19,24 +21,19 @@ export class PedidoComponent implements OnInit {
 
   ngOnInit(): void {
     this.produtoService.listarProdutos().subscribe(res => this.produtos = res);
-    console.log(this.produtos);
-    console.log(this.data);
+   
   }
   
   head = [['ID', 'Country', 'Rank', 'Capital']];
   data = [
-    [1, 'Finland', 7.632, 'Helsinki'],
-    [2, 'Norway', 7.594, 'Oslo'],
-    [3, 'Denmark', 7.555, 'Copenhagen'],
-    [4, 'Iceland', 7.495, 'Reykjavík'],
-    [5, 'Switzerland', 7.487, 'Bern'],
-    [9, 'Sweden', 7.314, 'Stockholm'],
-    [73, 'Belarus', 5.483, 'Minsk'],
+    [1, 'Finland', 7.632, 'Helsinki']
+    
   ];
 
  
 
   createPdf() {
+    console.log("produtos" + this.produtos);
     var doc = new jsPdf();
  
     doc.setFontSize(18);
@@ -47,7 +44,6 @@ export class PedidoComponent implements OnInit {
  
     (doc as any).autoTable({
       head: this.head,
-      
       body: this.data,
       theme: 'plain',
       didDrawCell: data => {
@@ -61,7 +57,4 @@ export class PedidoComponent implements OnInit {
     // Download PDF document  
    // doc.save('table.pdf');
   }
-
-  
-
 }
