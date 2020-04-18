@@ -7,6 +7,7 @@ import { ProdutoService } from 'src/app/shared/services';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Restaurant } from 'src/app/shared/interfaces/restaurant.dto';
 import { RestaurantService } from 'src/app/shared/services/restaurant.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastrar-produto',
@@ -23,7 +24,8 @@ export class CadastrarProdutoComponent implements OnInit {
               private categoriaService: CategoriaService,
               private restaurantService: RestaurantService,
               private produtoService: ProdutoService,
-              private snackBar: MatSnackBar) { }
+              private snackBar: MatSnackBar,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.gerarForm();
@@ -51,9 +53,9 @@ export class CadastrarProdutoComponent implements OnInit {
     this.produtoService.cadastrar(produto)
       .subscribe(
         data => {
-          const msg: string = "Realize o login para acessar o sistema.";
+          const msg: string = "Produto cadastrado com sucesso";
           this.snackBar.open(msg, "Sucesso", { duration: 5000 });
-          //this.router.navigate(['/login']);
+          this.router.navigate(['/lista-produto']);
         },
         err => {
           let msg: string = "Tente novamente em instantes.";

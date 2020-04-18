@@ -4,15 +4,13 @@
     <tr>
       <th>Id</th>
       <th>Nome</th>
-      <th>Preço</th>
-      <th>Adicionar</th>
+      <th>Imprimir</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let pedido of pedidos">
-      <td>{{pedido.id}}</td>
-      <td>{{pedido.nome}}</td>
-      <td>{{pedido.preco | currency: 'BRL' : 'symbol'}}</td>
+      <td>{{pedido.idPedido}}</td>
+      <td>{{pedido.cliente.nome}}</td>
       <a >
         <td class="text-center"><i class="fa fa-plus"></i></td> 
       </a>

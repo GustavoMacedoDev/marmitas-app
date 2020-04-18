@@ -1,9 +1,9 @@
 <div class="menu">
 <div>
-  <div class="menu">
-    <span class="">{{menuItem.nome}}</span>
-    <span class="">{{menuItem.preco | currency: 'BRL': 'symbol'}}</span>
-    <button (click)="emitAddEvent()">
+  <div class="menu-item-info-box-content">
+    <span class="menu-item-info-box-text">{{menuItem.nome}}</span>
+    <span class="menu-item-info-box-price">{{menuItem.preco | currency: 'BRL': 'symbol'}}</span>
+    <button (click)="emitAddEvent()" class="btadd btn btn-primary ">
       <i class="fa fa-plus">
       </i>
       Add

@@ -13,6 +13,7 @@ export class ProdutoService {
   private readonly PATH: string = 'api/produtos';
   private readonly PATHCADASTRO: string = 'api/produto';
   private readonly PATHBUSCA: string = 'api/produto/';
+  private readonly PATHBUSCAPORID: string = 'api/produtoid/';
 
   constructor(public httpClient: HttpClient,
      public httpUtil: HttpUtilService) { }
@@ -30,5 +31,10 @@ export class ProdutoService {
     const headers = new Headers()
     headers.append('Content-Type', 'application/json');
     return this.httpClient.post(env.baseUrl + this.PATHCADASTRO, produto, this.httpUtil.headers());
+  }
+
+  listaProdutoPorId(id: string): Observable<any> {
+    console.log(id);
+    return this.httpClient.get(env.baseUrl + this.PATHBUSCAPORID + id, this.httpUtil.headers());
   }
 }

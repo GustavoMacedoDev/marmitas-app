@@ -23,13 +23,12 @@ export class OrderConfirmationComponent implements OnInit {
     this.pedidoService.listarPedidos().subscribe(res => this.pedidos = res);
   }
 
-
-  geraPdf() {
+    geraPdf() {
     var doc = new jspdf();
 
-    doc.text(this.mesa, 15, 15);
+    doc.text("123", 15, 15);
     
-    doc.save("teste.pdf");
+    doc.output("dataurlnewwindow");
   }
   
 

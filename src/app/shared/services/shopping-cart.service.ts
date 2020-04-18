@@ -23,7 +23,8 @@ export class ShoppingCartService {
     }else{
       this.items.push(new CartItem(item));
     }
-    //this.snackBar.open(`Você adicionou o item ${item.nome}`)
+    let msg = "Você adicionou o item " + "  " + item.nome;
+    this.snackBar.open(msg, "ADD", { duration: 3000 })
   }
 
   increaseQty(item: CartItem){

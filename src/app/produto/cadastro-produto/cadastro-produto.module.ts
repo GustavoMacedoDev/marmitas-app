@@ -17,9 +17,16 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ListarProdutoComponent } from './components/listar-produto/listar-produto.component';
+import { EditarProdutoComponent } from './components/editar-produto/editar-produto.component';
 
 @NgModule({
-  declarations: [CadastrarProdutoComponent, CadastroProdutoComponent],
+  declarations: [
+    CadastrarProdutoComponent,
+    CadastroProdutoComponent,
+    ListarProdutoComponent, 
+    EditarProdutoComponent
+  ],
   imports: [
     CommonModule,
     BrowserAnimationsModule,

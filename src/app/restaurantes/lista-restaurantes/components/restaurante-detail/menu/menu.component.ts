@@ -18,8 +18,7 @@ export class MenuComponent implements OnInit {
   constructor(private produtoService: ProdutoService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.menu = this.produtoService.listaProdutosPorCategoria
-    (this.route.parent.snapshot.params['id']);
+    this.menu = this.produtoService.listarProdutos();
   }
 
   addMenuItem(item: MenuItem){
