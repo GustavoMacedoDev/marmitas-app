@@ -5,6 +5,7 @@ import { ShoppingCartService } from './services';
 import { RadioComponent } from './radio/radio.component';
 import { InputComponent } from './input/input.component';
 import { ClienteService } from './services/cliente.service';
+import { PhonePipe } from './pipes/phone.pipe';
 
 @NgModule({
   declarations: [

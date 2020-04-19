@@ -31,7 +31,7 @@ export class CadastrarPfComponent implements OnInit {
 
   gerarForm() {
   	this.form = this.fb.group({
-  		nome: ['', [Validators.required, Validators.minLength(3)]],
+  		nome: ['', [Validators.required, Validators.minLength(5)]],
       telefone: this.fb.control('', [Validators.required, Validators.pattern(this.telPattern)]),
       logradouro: this.fb.control('', [Validators.required, Validators.minLength(5)]),
       numero: this.fb.control('', [Validators.required, Validators.pattern(this.numberPattern)]),
@@ -49,9 +49,9 @@ export class CadastrarPfComponent implements OnInit {
     this.cadastrarPfService.cadastrar(cadastroPf)
       .subscribe(
         data => {
-          const msg: string = "Realize o login para acessar o sistema.";
+          const msg: string = "Cliente cadastrado com sucesso";
           this.snackBar.open(msg, "Sucesso", { duration: 5000 });
-          this.router.navigate(['/login']);
+          this.router.navigate(['/lista-clientes']);
         },
         err => {
           let msg: string = "Tente novamente em instantes.";

@@ -1,3 +1,5 @@
+import { Endereco } from './endereco.dto';
+
 export interface Cliente {
     id : string;
     nome: string;
@@ -6,6 +8,5 @@ export interface Cliente {
     numero: string;
     complemento: string;
     bairro: string;
-    enderecos: any[];
-
+    enderecos: Endereco[];
 }

@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CadastrarPfComponent } from './components';
 import { CadastroPfComponent } from './components/cadastro-pf.component';
 import { ListaPfComponent } from './components/lista-pf/lista-pf.component';
+import { PhonePipe } from 'src/app/shared/pipes/phone.pipe';
 
 
 @NgModule({
@@ -29,8 +30,7 @@ import { ListaPfComponent } from './components/lista-pf/lista-pf.component';
     MatListModule,
     MatTooltipModule,
     MatIconModule,
-    MatSnackBarModule,
-
+    MatSnackBarModule
   ]
 })
 export class CadastroPfModule { }
