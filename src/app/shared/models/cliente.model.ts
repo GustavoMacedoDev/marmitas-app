@@ -6,5 +6,6 @@ export interface Cliente {
     numero: string;
     complemento: string;
     bairro: string;
+    enderecos: any[];
 
 }

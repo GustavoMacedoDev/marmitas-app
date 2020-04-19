@@ -1,22 +1,19 @@
-<h2>Escolha o seu lanche</h2>
+<h2>Lista de Pedidos</h2>
 <table class="table table-striped">
     <thead>
     <tr>
       <th>Id</th>
-      <th>Nome</th>
+      <th>Cliente</th>
       <th>Imprimir</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let pedido of pedidos">
-      <td>{{pedido.idPedido}}</td>
-      <td>{{pedido.cliente.nome}}</td>
-      <a >
-        <td class="text-center"><i class="fa fa-plus"></i></td> 
-      </a>
+      <td>{{ pedido?.idPedido }}</td>
+      <td>{{ pedido?.cliente.nome }}-{{ pedido?.cliente.telefone }}</td>
+      <td><a class="btn btn-primary stretched-link" routerLink="{{ '/lista-pedido/listar/' + pedido.idPedido }}">Ver</a></td>
       
     </tr>
 
     </tbody>
   </table>
-<button (click)="geraPdf()">Gera pdf</button>

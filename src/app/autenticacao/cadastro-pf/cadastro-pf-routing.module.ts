@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CadastrarPfComponent } from './components';
 import { CadastroPfComponent } from './components/cadastro-pf.component';
+import { ListaPfComponent } from './components/lista-pf/lista-pf.component';
 
 
 export const CadastroPfRoutes: Routes = [
@@ -14,6 +15,10 @@ export const CadastroPfRoutes: Routes = [
 			component: CadastrarPfComponent 
 		  }
 		]
+	},
+	{
+		path: 'lista-clientes',
+		component: ListaPfComponent
 	}
 ];
 

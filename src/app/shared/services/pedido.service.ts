@@ -9,13 +9,18 @@ import { environment as env } from '../../../environments/environment';
 })
 export class PedidoService {
 
-  private readonly PATH: string = 'api/pedido';
+  private readonly PATH: string = 'api/pedido/';
 
   constructor(public httpClient: HttpClient,
      public httpUtil: HttpUtilService) { }
 
      listarPedidos(): Observable<any>{
        return this.httpClient.get(env.baseUrl + this.PATH, this.httpUtil.headers());
+     }
+
+     listaPedidoById(id: number): Observable<any> {
+       console.log(id);
+       return this.httpClient.get(env.baseUrl + this.PATH + id, this.httpUtil.headers());
      }
 
 }

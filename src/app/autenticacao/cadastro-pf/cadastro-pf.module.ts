@@ -13,10 +13,11 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { CadastrarPfComponent } from './components';
 import { CadastroPfComponent } from './components/cadastro-pf.component';
+import { ListaPfComponent } from './components/lista-pf/lista-pf.component';
 
 
 @NgModule({
-  declarations: [CadastrarPfComponent, CadastroPfComponent],
+  declarations: [CadastrarPfComponent, CadastroPfComponent, ListaPfComponent],
   imports: [
     CommonModule,
     FlexLayoutModule,
