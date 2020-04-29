@@ -2,7 +2,7 @@
   <section class="">
         <form [formGroup]="orderForm" novalidate>
           <div class="row">
-            <div class="col-xs-12">
+            <div class="col-sm-12">
               <h3 class="page-header">
                 Cliente
               </h3>
@@ -11,12 +11,15 @@
           
           <div class="form-row">
           
-            <div class="form-group col-md-3">
+            <div class="form-group col-sm-12">
               <select class="form-control" formControlName="cliente">
                 <option [selected]="true" value="">Selecione um cliente</option>
-                <option *ngFor="let cliente of clientes" value="{{cliente.id}}">{{ cliente.nome }}</option>
+                <option *ngFor="let cliente of clientes" 
+                  value="{{cliente.id}}">
+                    {{ cliente.nome }} 
+                </option>
               </select>
-    
+              
             
             </div>
           </div>
@@ -54,7 +57,6 @@
               <p class="lead">Entrega e Total:</p>
 
               <app-delivery-costs
-                [delivery]="delivery"
                 [itemsValue]="itemsValue()"></app-delivery-costs>
             </div>
             <!-- /.col -->

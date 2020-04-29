@@ -8,4 +8,5 @@ export interface ListaPedido {
     cliente: Cliente;
     itens: ProdutoDto[];
     formaPagamento: FormaPagamento;
+    totalPedido: number;
 }

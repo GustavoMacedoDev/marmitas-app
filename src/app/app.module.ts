@@ -22,6 +22,10 @@ import { RestaurantsComponent } from './restaurantes/lista-restaurantes/componen
 import { ListaRestaurantesModule } from './restaurantes/lista-restaurantes/lista-restaurantes.module';
 import { ListaRestaurantesRoutingModule } from './restaurantes/lista-restaurantes/lista-restaurantes-routing';
 import { PedidoComponent } from './relatorios/pedido/pedido.component';
+import { MesaModule } from './mesa/mesa/mesa.module';
+import { MesaRoutingModule } from './mesa/mesa/mesa.routing';
+import { TaxaEntregaModule } from './pedido/taxa-entrega/taxa-entrega.module';
+import { TaxaEntregaRoutingModule } from './pedido/taxa-entrega/taxa-entrega.routing';
 
 registerLocaleData(localePtBr);
 
@@ -52,6 +56,10 @@ registerLocaleData(localePtBr);
     CadastroProdutoRoutingModule,
     ListaRestaurantesModule,
     ListaRestaurantesRoutingModule,
+    MesaModule,
+    MesaRoutingModule,
+    TaxaEntregaModule,
+    TaxaEntregaRoutingModule,
     
     AppRoutingModule
   ],

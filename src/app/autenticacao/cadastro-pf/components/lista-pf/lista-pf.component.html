@@ -1,18 +1,4 @@
-<ng-template #content let-c="close" let-d="dismiss">
-    <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Info</h4>
-      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div *ngFor="let end of enderecos">
-      <p>{{ end.logradouro }}</p>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Save</button>
-    </div>
-  </ng-template>
-  
+ 
 <h2 class="text-center">Lista de Clientes</h2>
 <table class="table table-striped">
     <thead>
@@ -26,7 +12,7 @@
         <tr *ngFor="let cliente of clientes">
             <td>{{ cliente?.nome }}</td>
             <td>{{ cliente?.telefone }}</td>
-            <td><button class="btn btn-primary" (click)="open(content)">VER</button></td>
+            <td><button class="btn btn-primary">Editar</button></td>
         </tr>
     </tbody>
 </table>

@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { HttpUtilService } from './http-util.service';
 import { Observable } from 'rxjs';
 import { environment as env } from '../../../environments/environment';
+import { PedidoDto } from '../interfaces';
+import { ListaPedido } from '../interfaces/lista-pedido.dto';
 
 @Injectable({
   providedIn: 'root'
@@ -19,8 +21,8 @@ export class PedidoService {
      }
 
      listaPedidoById(id: number): Observable<any> {
-       console.log(id);
-       return this.httpClient.get(env.baseUrl + this.PATH + id, this.httpUtil.headers());
+       return this.httpClient.get(
+         env.baseUrl + this.PATH + id, this.httpUtil.headers());
      }
 
 }

@@ -15,10 +15,11 @@ import { CadastrarPfComponent } from './components';
 import { CadastroPfComponent } from './components/cadastro-pf.component';
 import { ListaPfComponent } from './components/lista-pf/lista-pf.component';
 import { PhonePipe } from 'src/app/shared/pipes/phone.pipe';
+import { EditaPfComponent } from './components/edita-pf/edita-pf.component';
 
 
 @NgModule({
-  declarations: [CadastrarPfComponent, CadastroPfComponent, ListaPfComponent],
+  declarations: [CadastrarPfComponent, CadastroPfComponent, ListaPfComponent, EditaPfComponent],
   imports: [
     CommonModule,
     FlexLayoutModule,

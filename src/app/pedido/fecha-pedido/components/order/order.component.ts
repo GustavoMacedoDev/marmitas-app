@@ -20,7 +20,7 @@ import { PedidoDto } from 'src/app/shared';
 export class OrderComponent implements OnInit {
   orderForm: FormGroup;
   myControl = new FormControl();
-  delivery: number = 3;
+  delivery: number = 0;
   clienteId: string;
   clientes: Cliente[];
   cliente: Cliente;

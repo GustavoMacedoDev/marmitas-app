@@ -5,6 +5,8 @@ import { ActivatedRoute } from '@angular/router';
 import { ProdutoService } from 'src/app/shared/services';
 import { Categoria } from 'src/app/shared/interfaces/categoria.dto';
 import { CategoriaService } from 'src/app/shared/services/categoria.service';
+import { TaxaEntrega } from 'src/app/shared/interfaces/taxa-entrega.dto';
+import { TaxaEntregaService } from 'src/app/shared/services/taxa-entrega.service';
 
 @Component({
   selector: 'app-menu',
@@ -14,11 +16,17 @@ import { CategoriaService } from 'src/app/shared/services/categoria.service';
 export class MenuComponent implements OnInit {
 
   menu: Observable<MenuItem[]>;
+  taxa: Observable<TaxaEntrega[]>;
 
-  constructor(private produtoService: ProdutoService, private route: ActivatedRoute) { }
+  constructor(
+              private produtoService: ProdutoService, 
+              private route: ActivatedRoute,
+              private taxaService: TaxaEntregaService
+              ) { }
 
   ngOnInit() {
     this.menu = this.produtoService.listarProdutos();
+    this.taxa = this.taxaService.listarTaxas();
   }
 
   addMenuItem(item: MenuItem){

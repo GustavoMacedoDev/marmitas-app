@@ -12,6 +12,7 @@ import { ListaPedido } from 'src/app/shared/interfaces/lista-pedido.dto';
 export class ListaPedidoComponent implements OnInit {
 
   pedido: ListaPedido;
+  dados: any;
   @ViewChild('content') content: ElementRef;
 
   constructor(
@@ -20,7 +21,8 @@ export class ListaPedidoComponent implements OnInit {
               ) { }
 
   ngOnInit(): void {
-    this.pedidoService.listaPedidoById(this.route.snapshot.params['id']).subscribe(res => this.pedido = res);
+    this.pedidoService.listaPedidoById(this.route.snapshot.params['id'])
+    .subscribe(res => this.pedido = res);
   }
 
   imprimir(){

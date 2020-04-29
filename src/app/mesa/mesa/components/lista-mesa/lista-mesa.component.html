@@ -1,0 +1,24 @@
+<div class="jumbotron jumbotron-fluid" *ngIf="!mesas?.length">
+    <p>Nenhum registro encontrado</p>
+</div>
+<div class="table" *ngIf="mesas?.length > 0">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Número da Mesa</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let mesa of mesas">
+                <td>{{ mesa.id }}</td>
+                <td>{{ mesa.numeroMesa }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div>
+    <button class="btn btn-primary" [routerLink]="['/cadastra-mesa']">
+        Cadastrar Mesa
+    </button>
+</div>

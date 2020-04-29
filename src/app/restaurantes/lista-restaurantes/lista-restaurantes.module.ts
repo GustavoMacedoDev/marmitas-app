@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { MenuComponent } from './components/restaurante-detail/menu/menu.component';
 import { MenuItemComponent } from './components/restaurante-detail/menu-item/menu-item.component';
 import { ShoppingCartComponent } from './components/restaurante-detail/shopping-cart/shopping-cart.component';
+import { ListaEntregaOrderComponent } from 'src/app/pedido/taxa-entrega/components/lista-entrega-order/lista-entrega-order.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ShoppingCartComponent } from './components/restaurante-detail/shopping-
     RestauranteDetailComponent,
     MenuComponent,
     MenuItemComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    ListaEntregaOrderComponent
   ],
   imports: [
     CommonModule,
