@@ -1,18 +1,21 @@
-<form [formGroup]="form" fxLayoutAlign="center" novalidate>
-    <mat-list>
-      <mat-list-item>
-        <mat-form-field>
-          <input matInput placeholder="Nome"
-              formControlName="nome">
-        </mat-form-field>
-      </mat-list-item>
-      <mat-list-item>
-        <mat-form-field>
-          <input matInput placeholder="Preço"
-              formControlName="preco">
-        </mat-form-field>
-      </mat-list-item>
-      
-    </mat-list>
-  </form>
+<form (ngSubmit)="salvar()">   
+ <div class="form-group">
+  <br/>
+  <h3 class="text-center">Editar Produto</h3>
+
+  <div class="fields">
+    <label><h3>Nome:</h3>
+      <input type="input" name="nome" size="30" [(ngModel)]="produto.nome"  class="form-control"/>
+    </label><br/><br/>
+
+    <label><h3>Preço:</h3>
+      <input type="input" name="preco" size="30" [(ngModel)]="produto.preco"  class="form-control"/>
+    </label><br/><br/>
+  </div>
   
+
+  <button type="submit" class="fields btn btn-primary">Salvar</button>
+  <button [routerLink]="['/lista-produto']" class="fields btn btn-primary">Voltar</button>
+ </div>
+ 
+</form>

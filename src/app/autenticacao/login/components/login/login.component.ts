@@ -45,7 +45,6 @@ export class LoginComponent implements OnInit {
           localStorage['token'] = data['data']['token'];
           const usuarioData = JSON.parse(
             atob(data['data']['token'].split('.')[1]));
-            console.log(usuarioData);
 
           if (usuarioData['role'] == 'ROLE_ADMIN') {
            this.router.navigate(['/restaurants']);

@@ -1,5 +1,5 @@
 <div class="class-body">
-<h2>Lista de Produtos</h2>
+<h2 class="text-center">Lista de Produtos</h2>
 <div *ngIf="!produtos?.length">
     <p class="text-center">
       Nenhum produto.
@@ -11,18 +11,24 @@
             <th>Nome</th>
             <th>Preço</th>
             <th>Categoria</th>
-            <th>Ações</th>
+            <th>Editar</th>
+            <th>Status</th>
         </thead>
         <tbody>
             <tr *ngFor="let produto of produtos">
-                <td>{{ produto.nome }}</td>
-                <td>{{ produto.preco}}</td>
-                <td>{{ produto.categoria.nome}}</td>
+                <td>{{ produto?.nome }}</td>
+                <td>{{ produto?.preco | currency : 'BRL' : 'symbol'}}</td>
+                <td>{{ produto?.categoria.nome}}</td>
                 <td>
                     <a routerLink="{{ '/produto/editar/' + produto.id }}">
                         <i class="fa fa-edit"></i>
                     </a>
+                    <a (click)="inativa(produto.id)">
+                        <i class="fa fa-eye-slash"></i>
+                    </a>
                 </td>
+                <td *ngIf="produto?.status == 0">Ativo</td>
+                <td *ngIf="produto?.status == 1">Inativo</td>
             </tr>
         </tbody>
     </table>

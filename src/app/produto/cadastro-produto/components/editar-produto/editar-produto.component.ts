@@ -3,6 +3,7 @@ import { ProdutoDto } from 'src/app/shared';
 import { ProdutoService } from 'src/app/shared/services';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Produto } from 'src/app/shared/models/produto.dto';
 
 @Component({
   selector: 'app-editar-produto',
@@ -11,7 +12,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class EditarProdutoComponent implements OnInit {
 
-  produto: ProdutoDto;
+  produto: Produto = new Produto();
   form: FormGroup;
   produtoId: string;
 
@@ -22,21 +23,25 @@ export class EditarProdutoComponent implements OnInit {
 
   ngOnInit(): void {
     this.produtoId = this.router.snapshot.params['id'];
-    this.gerarForm();
+   // this.gerarForm();
     this.obterDadosProduto();
   }
 
-  gerarForm() {
-  	this.form = this.fb.group({
-  		nome: ['', [Validators.required]],
-  		preco: ['', [Validators.required]]
-  	});
-  }
+ // gerarForm() {
+  ///	this.form = this.fb.group({
+ // 		nome: ['', [Validators.required]],
+//preco: ['', [Validators.required]]
+//});
+ // }
 
   obterDadosProduto() {
     this.produtoService.listaProdutoPorId(this.produtoId)
       .subscribe(res => this.produto = res);
-    console.log(this.produto);
+      
+  }
+
+  salvar() {
+    this.produtoService.atualizaProduto(this.produto).subscribe();
   }
 
 

@@ -4,19 +4,28 @@ import { HttpUtilService } from './http-util.service';
 import { Observable } from 'rxjs';
 import { environment as env} from 'src/environments/environment';
 import { ProdutoDto } from '..';
+import { Produto } from '../models/produto.dto';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProdutoService {
+  
 
+  private readonly PATHATIVOS: string = 'api/produtosativos';
   private readonly PATH: string = 'api/produtos';
   private readonly PATHCADASTRO: string = 'api/produto';
+  private readonly PATHINATIVA: string = 'api/produtoinativa/';
+  private readonly PATHEDITAR: string = 'api/produto';
   private readonly PATHBUSCA: string = 'api/produto/';
   private readonly PATHBUSCAPORID: string = 'api/produtoid/';
 
   constructor(public httpClient: HttpClient,
      public httpUtil: HttpUtilService) { }
+
+  listarProdutosAtivos(): Observable<any> {
+    return this.httpClient.get(env.baseUrl + this.PATHATIVOS, this.httpUtil.headers());
+  }
 
   listarProdutos(): Observable<any> {
     return this.httpClient.get(env.baseUrl + this.PATH, this.httpUtil.headers());
@@ -34,7 +43,22 @@ export class ProdutoService {
   }
 
   listaProdutoPorId(id: string): Observable<any> {
-    console.log(id);
+    
     return this.httpClient.get(env.baseUrl + this.PATHBUSCAPORID + id, this.httpUtil.headers());
+  }
+
+  atualizaProduto(produto: Produto) {
+    const headers = new Headers()
+    headers.append('Content-Type', 'application/json');
+    return this.httpClient.put(env.baseUrl + this.PATHEDITAR, 
+      produto, this.httpUtil.headers());
+  }
+
+  inativaProduto(produtoId): Observable<any> {
+    const headers = new Headers()
+    headers.append('Content-Type', 'application/json');
+    return this.httpClient.put(
+      env.baseUrl + this.PATHINATIVA + produtoId, this.httpUtil.headers());
+
   }
 }

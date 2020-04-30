@@ -17,4 +17,9 @@ export class ListarProdutoComponent implements OnInit {
     this.produtoService.listarProdutos().subscribe(res => this.produtos = res);
   }
 
+  inativa(produtoId) {
+    this.produtoService.inativaProduto(produtoId).subscribe();
+    console.log(produtoId);
+  }
+
 }

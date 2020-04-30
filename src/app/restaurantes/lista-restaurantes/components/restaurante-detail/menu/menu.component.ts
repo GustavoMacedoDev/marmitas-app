@@ -25,7 +25,7 @@ export class MenuComponent implements OnInit {
               ) { }
 
   ngOnInit() {
-    this.menu = this.produtoService.listarProdutos();
+    this.menu = this.produtoService.listarProdutosAtivos();
     this.taxa = this.taxaService.listarTaxas();
   }
 
