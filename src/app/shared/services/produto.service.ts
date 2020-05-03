@@ -55,6 +55,7 @@ export class ProdutoService {
   }
 
   inativaProduto(produtoId): Observable<any> {
+    console.log(produtoId);
     const headers = new Headers()
     headers.append('Content-Type', 'application/json');
     return this.httpClient.put(

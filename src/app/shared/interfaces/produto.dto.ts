@@ -1,6 +1,6 @@
 import { Categoria } from './categoria.dto';
 
-export interface ProdutoDto {
+export class ProdutoDto {
     idProduto : string;
     nome : string;
     preco : number;

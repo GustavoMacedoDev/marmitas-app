@@ -10,6 +10,7 @@ import { ProdutoService } from 'src/app/shared/services';
 export class ListarProdutoComponent implements OnInit {
 
   produtos: ProdutoDto[];
+  prods: ProdutoDto[];
 
   constructor(private produtoService: ProdutoService) { }
 
@@ -18,7 +19,7 @@ export class ListarProdutoComponent implements OnInit {
   }
 
   inativa(produtoId) {
-    this.produtoService.inativaProduto(produtoId).subscribe();
+    this.produtoService.inativaProduto(produtoId).subscribe(res => this.prods = res);
     console.log(produtoId);
   }
 

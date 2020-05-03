@@ -1,10 +1,10 @@
 <div class="content" #content>
     <h3>Pedido {{ pedido?.instante }}</h3> 
     <span class="text-center">#{{ pedido?.idPedido }}#</span><br>
-    <span><strong>Cliente</strong> {{ pedido?.cliente.nome }}</span><br>
-    <span><strong>Telefone</strong> {{ pedido?.cliente.telefone }}</span><br>
+    <span><strong>Cliente:</strong> {{ pedido?.cliente.nome }}</span><br>
+    <span><strong>Telefone:</strong> {{ pedido?.cliente.telefone }}</span><br>
     <div *ngFor="let end of pedido?.cliente.enderecos">
-        <span><strong>Endereço</strong> {{ end?.logradouro }} , {{ end?.numero}}, {{ end?.bairro }}, {{end?.complemento }}</span>
+        <span><strong>Endereço:</strong> {{ end?.logradouro }} , {{ end?.numero}}, {{ end?.bairro }}, {{end?.complemento }}</span>
     </div>
     <div>
         <h4>Produtos</h4>

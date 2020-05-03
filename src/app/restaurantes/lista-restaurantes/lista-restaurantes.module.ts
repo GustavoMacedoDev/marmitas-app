@@ -23,5 +23,6 @@ import { ListaEntregaOrderComponent } from 'src/app/pedido/taxa-entrega/componen
     CommonModule,
     RouterModule
   ]
+
 })
 export class ListaRestaurantesModule { }

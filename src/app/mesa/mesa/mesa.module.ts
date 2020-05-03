@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CadastraMesaComponent } from './components/cadastra-mesa/cadastra-mesa.component';
-import { ListaMesaComponent } from './components/lista-mesa/lista-mesa.component';
+import { ListaMesaComponent } from '../../restaurantes/lista-restaurantes/components/lista-mesa/lista-mesa.component';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -16,11 +16,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
+import { LancamentoMesaComponent } from '../../restaurantes/lista-restaurantes/components/lancamento-mesa/lancamento-mesa.component';
+import { ListaRestaurantesModule } from 'src/app/restaurantes/lista-restaurantes/lista-restaurantes.module';
 
 
 
 @NgModule({
-  declarations: [CadastraMesaComponent, ListaMesaComponent],
+  declarations: [
+    CadastraMesaComponent
+  ],
   imports: [
     CommonModule,
     BrowserAnimationsModule,
